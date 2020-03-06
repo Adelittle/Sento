@@ -1,0 +1,2 @@
+https://hackersid.com/tool/xss1.php
+http://nakanosec.com/
