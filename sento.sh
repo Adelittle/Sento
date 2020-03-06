@@ -31,7 +31,7 @@ OPTIONS
 printf "\n${lightgreen}Now Checking...\n\n"
 for site in $(cat $list);
 do
-if [[ $(curl --connect-timeout 5 --max-time 5 -kLs "https://api.n45ht.or.id/v1/xss-scanner?url=${site}/" ) =~ "XSS found" ]]; then
+if [[ $(curl --connect-timeout 5 --max-time 5 -kLs "https://api.n45ht.or.id/v1/xss-scanner?url=${site}/" ) =~ "XSS found by N45HT" ]]; then
 payload=$(curl -kls https://api.n45ht.or.id/v1/xss-scanner?url=${site} | grep -Po '"poc":"\K.*?(?=#n45ht)'| sed 's/\\//g' );  
 printf "${white}[+] ${site} is ${lightgreen} vuln\n${white}     > Payload: ${lightgreen}${payload}"
   echo "$site/" >> ${save}
